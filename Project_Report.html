@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Project Report - CSE 2204 - Varendra University</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: #222;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            background-color: #f7f9fa;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .page-break {
+            page-break-before: always;
+            margin-top: 40px;
+        }
+        .cover-page {
+            text-align: center;
+            min-height: 900px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+        }
+        .university-logo-box {
+            margin: 20px auto;
+            width: 120px;
+            height: 120px;
+            border: 2px dashed #004d40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #004d40;
+            font-weight: bold;
+            font-size: 13px;
+            background: #e0f2f1;
+        }
+        .uni-header h1 {
+            font-size: 26px;
+            margin: 5px 0;
+            color: #00332c;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .uni-header h2 {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #555;
+            font-weight: 500;
+        }
+        .uni-header h3 {
+            font-size: 15px;
+            color: #666;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+        .project-title-box {
+            margin: 35px 0;
+            padding: 22px 20px;
+            border-top: 3px solid #004d40;
+            border-bottom: 3px solid #004d40;
+            background: #fafafa;
+        }
+        .project-title-box .badge {
+            display: inline-block;
+            background: #004d40;
+            color: #fff;
+            padding: 4px 14px;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .project-title-box h2 {
+            font-size: 22px;
+            margin: 0;
+            color: #111;
+            line-height: 1.4;
+        }
+        .project-title-box p {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0 0 0;
+        }
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        .meta-table th, .meta-table td {
+            border: 1px solid #ccc;
+            padding: 9px 12px;
+            text-align: left;
+            font-size: 13.5px;
+        }
+        .meta-table th {
+            background-color: #004d40;
+            color: #fff;
+            font-weight: 600;
+        }
+        .meta-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .submission-info {
+            font-size: 13.5px;
+            color: #444;
+            margin-top: 15px;
+        }
+        h2.section-title {
+            color: #004d40;
+            border-bottom: 2px solid #004d40;
+            padding-bottom: 6px;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        h3.sub-title {
+            color: #222;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        p, li {
+            font-size: 14px;
+            text-align: justify;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 13px;
+            overflow-x: auto;
+            font-family: Consolas, 'Courier New', monospace;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #e0f2f1;
+            color: #004d40;
+            font-weight: 600;
+        }
+        .screenshot-placeholder {
+            border: 2px dashed #999;
+            background: #fafafa;
+            border-radius: 6px;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 18px 0;
+            color: #666;
+        }
+        .screenshot-placeholder strong {
+            display: block;
+            color: #004d40;
+            font-size: 14.5px;
+            margin-bottom: 5px;
+        }
+        .screenshot-placeholder p {
+            margin: 0;
+            font-size: 12.5px;
+            text-align: center;
+        }
+        @media print {
+            body { background: none; padding: 0; }
+            .container { box-shadow: none; padding: 0; max-width: 100%; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ==================== COVER PAGE ==================== -->
+    <div class="cover-page">
+        <div>
+            <div class="uni-header">
+                <div class="university-logo-box">
+                    <span>[VU LOGO]</span>
+                </div>
+                <h1>Varendra University</h1>
+                <h2>Department of Computer Science and Engineering</h2>
+                <h3>4th Semester (Summer-2026)</h3>
+                <h3><strong>Course Code:</strong> CSE 2204 &nbsp;|&nbsp; <strong>Course Title:</strong> Computer Algorithms Lab</h3>
+            </div>
+
+            <div class="project-title-box">
+                <span class="badge">Lab Project Report</span>
+                <h2>Optimal Route Finder to Varendra University Campus Using Dijkstra’s Algorithm</h2>
+                <p>Dual-Criteria Optimization: Lowest Fare (BDT) vs. Fastest Travel Time (Minutes)</p>
+            </div>
+        </div>
+
+        <div>
+            <h4 style="text-align: left; margin-bottom: 8px; color: #004d40;">Group Members & Workload Distribution:</h4>
+            <table class="meta-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Section</th>
+                        <th>Role / Contribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>[Your Name 1]</strong></td>
+                        <td>221311117</td>
+                        <td>C</td>
+                        <td>Algorithm Design & Graph Modeling</td>
+                    </tr>
+                    <tr>
+                        <td><strong>[Your Name 2]</strong></td>
+                        <td>221311118</td>
+                        <td>C</td>
+                        <td>C++ Implementation & Priority Optimization</td>
+                    </tr>
+                    <tr>
+                        <td><strong>[Your Name 3]</strong></td>
+                        <td>221311119</td>
+                        <td>C</td>
+                        <td>Testing, Git Version Control & Report</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="submission-info">
+                <p style="text-align: center;"><strong>Submission Date:</strong> November 2026</p>
+                <p style="text-align: center; font-size: 12px; color: #777;">Report File Name Format: <code>117_118_119_C.pdf</code></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 1. PROBLEM STATEMENT ==================== -->
+    <div class="page-break"></div>
+    <h2 class="section-title">1. Problem Statement</h2>
+
+    <h3 class="sub-title">1.1 Context & Background</h3>
+    <p>
+        Varendra University (VU) has shifted its primary academic activities to its permanent campus located at <strong>Kharkhari, Rajshahi</strong>, situated along the northern-eastern bypass corridor. Consequently, students, professors, and administrative staff commute daily from various residential, commercial, and transit zones across Rajshahi City—such as <strong>Zero Point, Alupatti, Laxmipur, Railgate, Bhadra, Talaimari, Kazla, Binodpur, Katakhali, Choddopai, Shalbagan, and Naodapara</strong>.
+    </p>
+
+    <h3 class="sub-title">1.2 The Problem to Solve</h3>
+    <p>
+        A student's priority changes depending on their situation:
+    </p>
+    <ul>
+        <li><strong>Fastest Route ("Taratari jawa jabe"):</strong> During morning exams or tight lecture schedules, students prioritize minimizing travel time, taking direct express bypass corridors.</li>
+        <li><strong>Cheapest Route ("Vara kom lagbe"):</strong> On normal days, students on a limited monthly budget prefer lower fares via shared local student tempos and inner hops, saving valuable pocket money.</li>
+    </ul>
+
+    <!-- ==================== 2. ALGORITHM ==================== -->
+    <h2 class="section-title">2. Algorithm of the Solution</h2>
+    <pre>
+1. Represent the road network as an undirected graph G = (V, E).
+   - Vertices (V): Rajshahi hubs (Katakhali, Talaimari, Binodpur, VU, etc.)
+   - Edges (E): Direct road connections with dual weights: {fare, time}.
+
+2. Input starting location and priority (1 = Cheapest Route, 2 = Fastest Route).
+   Target destination is fixed to "Varendra University (VU)".
+
+3. Initialize minCost array with INFINITY, parent array with -1.
+   Set minCost[startNode] = 0 and push (0, startNode) to Min-Priority Queue.
+
+4. While PQ is not empty:
+   a. Pop node 'u' with minimum cost.
+   b. If u == endNode, break.
+   c. For each neighbor edge (u -> v):
+        weight = (priority == 1) ? edge.fare : edge.time
+        If minCost[u] + weight < minCost[v]:
+            minCost[v] = minCost[u] + weight
+            parent[v] = u
+            Push (minCost[v], v) to PQ.
+
+5. Reconstruct the optimal path by backtracking from endNode using parent[] array.
+6. Calculate total fare and total travel time along the path and display the step-by-step route.
+    </pre>
+
+    <!-- ==================== 3. SOURCE CODE LINK ==================== -->
+    <h2 class="section-title">3. Source Code & GitHub Link</h2>
+    <p style="background: #eef7ee; padding: 12px 16px; border-left: 4px solid #004d40; border-radius: 4px; font-family: monospace; font-size: 14px;">
+        <strong>GitHub Repository:</strong> https://github.com/[your-username]/Optimal-Route-Finder-Varendra-University
+    </p>
+
+    <!-- ==================== 4. OUTPUT SCREENSHOTS ==================== -->
+    <div class="page-break"></div>
+    <h2 class="section-title">4. Output Screenshots</h2>
+    <p>
+        The following test cases demonstrate how the algorithm calculates optimal routes to Varendra University based on the two distinct criteria:
+    </p>
+
+    <h3 class="sub-title">4.1 Screenshot: Option 1 - Cheapest Route (Lowest Fare)</h3>
+    <div class="screenshot-placeholder">
+        <strong>[ PASTE SCREENSHOT 1 HERE: CHEAPEST ROUTE OUTPUT ]</strong>
+        <p>Run main.cpp in terminal: Start = "Katakhali", Choice = 1 (Cheapest). Paste the screenshot here.</p>
+    </div>
+    <p><strong>Observed Output:</strong> <code>Katakhali &rarr; Binodpur &rarr; Choddopai &rarr; Varendra University (VU)</code><br>
+    <strong>Total Fare:</strong> 20 Taka | <strong>Estimated Time:</strong> 20 Minutes <em>(Saves 10 Taka by taking shared student tempo hops).</em></p>
+
+    <h3 class="sub-title">4.2 Screenshot: Option 2 - Fastest Route (Minimum Time)</h3>
+    <div class="screenshot-placeholder">
+        <strong>[ PASTE SCREENSHOT 2 HERE: FASTEST ROUTE OUTPUT ]</strong>
+        <p>Run main.cpp in terminal: Start = "Katakhali", Choice = 2 (Fastest). Paste the screenshot here.</p>
+    </div>
+    <p><strong>Observed Output:</strong> <code>Katakhali &rarr; Varendra University (VU)</code><br>
+    <strong>Total Fare:</strong> 30 Taka | <strong>Estimated Time:</strong> 11 Minutes <em>(Saves 9 Minutes by taking the direct bypass express auto).</em></p>
+
+    <!-- ==================== 5. DISCUSSION ==================== -->
+    <h2 class="section-title">5. Discussion</h2>
+
+    <h3 class="sub-title">5.1 Time and Space Complexity</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Metric</th>
+                <th>Complexity</th>
+                <th>Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Time Complexity</strong></td>
+                <td><strong>O((V + E) log V)</strong></td>
+                <td>Min-heap priority queue extracts minimum cost vertices and relaxes edges in logarithmic time. Execution finishes in &lt; 1 ms.</td>
+            </tr>
+            <tr>
+                <td><strong>Space Complexity</strong></td>
+                <td><strong>O(V + E)</strong></td>
+                <td>Adjacency list stores graph nodes and edges with linear memory footprint.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sub-title">5.2 Technical Challenges</h3>
+    <ul>
+        <li><strong>Resolving Node Mapping:</strong> Ensuring that location aliases and string inputs consistently map to the exact destination node ID to prevent unintended default-constructed node traversals.</li>
+        <li><strong>Dual-Criteria Calibration:</strong> Decoupling fare and travel time so that local shared tempo hops minimize monetary expenditure while direct express bypass corridors minimize travel duration.</li>
+    </ul>
+
+    <!-- ==================== 6. TEAM MANAGEMENT ==================== -->
+    <div class="page-break"></div>
+    <h2 class="section-title">6. Team Management & Version Control</h2>
+
+    <h3 class="sub-title">6.1 Workload Distribution Table</h3>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Team Member</th>
+                <th>Student ID</th>
+                <th>Assigned Tasks & Contributions</th>
+                <th>Workload %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>[Member 1 Name]</strong></td>
+                <td>221311117</td>
+                <td>Problem formulation, Rajshahi road network survey to VU, algorithm flowchart, core Dijkstra implementation.</td>
+                <td>35%</td>
+            </tr>
+            <tr>
+                <td><strong>[Member 2 Name]</strong></td>
+                <td>221311118</td>
+                <td>Graph data structures (adjacency list, priority queue), route data integration, and path reconstruction logic.</td>
+                <td>35%</td>
+            </tr>
+            <tr>
+                <td><strong>[Member 3 Name]</strong></td>
+                <td>221311119</td>
+                <td>Edge weight calibration via Google Maps, test cases execution, Git version control, and report compilation.</td>
+                <td>30%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sub-title">6.2 Git Commit History</h3>
+    <div class="screenshot-placeholder">
+        <strong>[ PASTE SCREENSHOT 3 HERE: GITHUB COMMITS / GIT LOG ]</strong>
+        <p>Take a screenshot of your GitHub commit history page or <code>git log --oneline</code> terminal output and paste it here.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

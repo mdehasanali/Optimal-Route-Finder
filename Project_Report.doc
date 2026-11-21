@@ -1,0 +1,295 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Lab Project Report - CSE 2204</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        body {
+            font-family: Calibri, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #111;
+        }
+        .uni-header {
+            text-align: center;
+            margin-bottom: 30pt;
+        }
+        .uni-header h1 {
+            font-size: 20pt;
+            color: #004d40;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .uni-header h2 {
+            font-size: 14pt;
+            color: #555;
+            margin: 4pt 0;
+            font-weight: normal;
+        }
+        .uni-header h3 {
+            font-size: 12pt;
+            color: #333;
+            margin: 4pt 0;
+        }
+        .title-box {
+            text-align: center;
+            border-top: 2pt solid #004d40;
+            border-bottom: 2pt solid #004d40;
+            padding: 18pt 10pt;
+            margin: 30pt 0;
+            background-color: #f7f9fa;
+        }
+        .title-box h2 {
+            font-size: 16pt;
+            color: #000;
+            margin: 0;
+        }
+        .title-box p {
+            font-size: 11pt;
+            color: #555;
+            margin: 6pt 0 0 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15pt 0;
+        }
+        th, td {
+            border: 1pt solid #aaa;
+            padding: 6pt 10pt;
+            text-align: left;
+            font-size: 10.5pt;
+        }
+        th {
+            background-color: #004d40;
+            color: #fff;
+        }
+        h2.sec-title {
+            color: #004d40;
+            font-size: 14pt;
+            border-bottom: 1.5pt solid #004d40;
+            padding-bottom: 4pt;
+            margin-top: 20pt;
+        }
+        h3.sub-title {
+            color: #222;
+            font-size: 12pt;
+            margin-top: 14pt;
+        }
+        .code-box {
+            background-color: #f4f4f4;
+            border: 1pt solid #ccc;
+            padding: 8pt;
+            font-family: Consolas, monospace;
+            font-size: 9.5pt;
+        }
+        .ss-box {
+            border: 2pt dashed #888;
+            background-color: #fafafa;
+            padding: 30pt 15pt;
+            text-align: center;
+            color: #555;
+            margin: 15pt 0;
+        }
+        .page-break {
+            page-break-before: always;
+            mso-special-character: line-break;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COVER PAGE -->
+    <div class="uni-header">
+        <br><br>
+        <div style="font-size: 30pt; color: #004d40; font-weight: bold;">[VU LOGO]</div>
+        <br>
+        <h1>Varendra University</h1>
+        <h2>Department of Computer Science and Engineering</h2>
+        <h3>4th Semester (Summer-2026)</h3>
+        <h3><strong>Course Code:</strong> CSE 2204 &nbsp;|&nbsp; <strong>Course Title:</strong> Computer Algorithms Lab</h3>
+    </div>
+
+    <div class="title-box">
+        <div style="font-size: 10pt; font-weight: bold; color: #004d40; text-transform: uppercase;">Lab Project Report</div>
+        <h2>Optimal Route Finder to Varendra University Campus Using Dijkstra’s Algorithm</h2>
+        <p>Dual-Criteria Optimization: Lowest Fare (BDT) vs. Fastest Travel Time (Minutes)</p>
+    </div>
+
+    <br>
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Student ID</th>
+                <th>Section</th>
+                <th>Role / Contribution</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>[Your Name 1]</strong></td>
+                <td>221311117</td>
+                <td>C</td>
+                <td>Algorithm Design & Graph Modeling</td>
+            </tr>
+            <tr>
+                <td><strong>[Your Name 2]</strong></td>
+                <td>221311118</td>
+                <td>C</td>
+                <td>C++ Implementation & Priority Optimization</td>
+            </tr>
+            <tr>
+                <td><strong>[Your Name 3]</strong></td>
+                <td>221311119</td>
+                <td>C</td>
+                <td>Testing, Git Version Control & Report</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><br>
+    <div style="text-align: center; font-size: 11pt;">
+        <strong>Submission Date:</strong> November 2026<br>
+        <span style="font-size: 10pt; color: #666;">Suggested PDF File Name: <code>117_118_119_C.pdf</code></span>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page-break"></div>
+
+    <h2 class="sec-title">1. Problem Statement</h2>
+    <h3 class="sub-title">1.1 Context & Background</h3>
+    <p>Varendra University (VU) has shifted its primary academic activities to its permanent campus located at <strong>Kharkhari, Rajshahi</strong>, situated along the northern bypass corridor. Consequently, students, professors, and administrative staff commute daily from various residential, commercial, and transit zones across Rajshahi City—such as <strong>Zero Point, Laxmipur, Railgate, Bhadra, Talaimari, Binodpur, and Naodapara</strong>.</p>
+    <p>In Rajshahi, commuters rely predominantly on battery-run auto-rickshaws (Easybikes) and local tempos. Commuting presents daily challenges because multiple paths exist to reach the university, with major trade-offs between monetary fare (in BDT) and travel time (in minutes).</p>
+
+    <h3 class="sub-title">1.2 The Problem to Solve</h3>
+    <p>A student's priority varies depending on the situation:</p>
+    <ul>
+        <li><strong>Fastest Route ("Taratari jawa jabe"):</strong> During morning exams or tight class schedules, students prioritize minimizing travel time, even if it costs slightly more via express bypass routes.</li>
+        <li><strong>Cheapest Route ("Vara kom lagbe"):</strong> On normal days, students on a limited monthly budget prefer lower fares via shared local tempos, even if it requires extra travel time.</li>
+    </ul>
+
+    <h3 class="sub-title">1.3 Project Objective</h3>
+    <p>To design and implement an efficient, automated decision-support system in C++ using <strong>Dijkstra's Shortest Path Algorithm</strong>. Given any starting location in Rajshahi and the chosen priority (Cheapest vs. Fastest), the system calculates the mathematically optimal step-by-step route to Varendra University.</p>
+
+    <h2 class="sec-title">2. Algorithm of the Solution</h2>
+    <h3 class="sub-title">2.1 Step-by-Step Algorithm (Dijkstra with Priority Selector)</h3>
+    <div class="code-box">
+1. Model the Rajshahi road network as an undirected graph G = (V, E).<br>
+   - Vertices (V): Transit hubs (Zero Point, Railgate, Talaimari, VU, etc.)<br>
+   - Edges (E): Direct road segments with dual weights: {fare, time}.<br>
+2. Input starting location and priority (1 = Cheapest, 2 = Fastest).<br>
+   Destination is set to "Varendra University".<br>
+3. Initialize minCost array with INFINITY, parent array with -1.<br>
+   Set minCost[startNode] = 0 and push (0, startNode) to Min-Priority Queue (PQ).<br>
+4. While PQ is not empty:<br>
+   a. Extract node 'u' with minimum cost.<br>
+   b. If currentCost > minCost[u], continue.<br>
+   c. If u == endNode, break.<br>
+   d. For each neighbor edge (u -> v):<br>
+        weight = (priority == 1) ? edge.fare : edge.time<br>
+        If minCost[u] + weight < minCost[v]:<br>
+            minCost[v] = minCost[u] + weight<br>
+            parent[v] = u<br>
+            Push (minCost[v], v) to PQ.<br>
+5. Backtrack from endNode using parent[] array to reconstruct the optimal route.<br>
+6. Traverse the path to sum individual fares and transit times; display the breakdown.
+    </div>
+
+    <h3 class="sub-title">2.2 Algorithm Flowchart</h3>
+    <p><strong>[User Input: Start & Priority] &rarr; [Initialize Dijkstra: minCost=INF, PQ] &rarr; [Extract Min Node u] &rarr; [Select Weight: Fare/Time] &rarr; [Relax Neighbor Edges] &rarr; [Backtrack via parent[]] &rarr; [Display Optimal Route & Stats]</strong></p>
+
+    <h2 class="sec-title">3. Source Code & GitHub Link</h2>
+    <p><strong>GitHub Repository Link:</strong> <span style="color: blue; text-decoration: underline;">https://github.com/[your-username]/Optimal-Route-Finder-Varendra-University</span></p>
+    <p><em>(The complete code is also available in <code>main.cpp</code> inside the project directory).</em></p>
+
+    <!-- PAGE 3 -->
+    <div class="page-break"></div>
+
+    <h2 class="sec-title">4. Output Screenshots</h2>
+    <p>Below are the test outputs showing how the algorithm determines the optimal route to Varendra University based on both criteria:</p>
+
+    <h3 class="sub-title">4.1 Screenshot: Option 1 - Cheapest Route (Lowest Fare)</h3>
+    <div class="ss-box">
+        <strong>[ PASTE SCREENSHOT 1 HERE: CHEAPEST ROUTE OUTPUT ]</strong><br>
+        <span style="font-size: 10pt;">(Run main.cpp in terminal: Start = "Zero Point", Choice = 1)</span>
+    </div>
+    <p><strong>Observed Path:</strong> <code>Zero Point &rarr; Talaimari &rarr; Binodpur &rarr; Varendra University</code><br>
+    <strong>Total Fare:</strong> 25 Taka | <strong>Estimated Time:</strong> 29 Minutes <em>(Saves 15 Taka by utilizing local student tempo).</em></p>
+
+    <h3 class="sub-title">4.2 Screenshot: Option 2 - Fastest Route (Minimum Time)</h3>
+    <div class="ss-box">
+        <strong>[ PASTE SCREENSHOT 2 HERE: FASTEST ROUTE OUTPUT ]</strong><br>
+        <span style="font-size: 10pt;">(Run main.cpp in terminal: Start = "Zero Point", Choice = 2)</span>
+    </div>
+    <p><strong>Observed Path:</strong> <code>Zero Point &rarr; Talaimari &rarr; Varendra University</code><br>
+    <strong>Total Fare:</strong> 40 Taka | <strong>Estimated Time:</strong> 20 Minutes <em>(Saves 9 Minutes by taking the direct bypass corridor).</em></p>
+
+    <h2 class="sec-title">5. Discussion</h2>
+    <h3 class="sub-title">5.1 Time and Space Complexity</h3>
+    <ul>
+        <li><strong>Time Complexity: O((V + E) log V)</strong> &mdash; Min-heap priority queue extracts minimum cost vertices and relaxes edges in logarithmic time. With |V|=10 and |E|=16, the code executes in less than 1 millisecond.</li>
+        <li><strong>Space Complexity: O(V + E)</strong> &mdash; Graph is stored in an adjacency list with linear space overhead for tracking arrays (minCost, parent).</li>
+    </ul>
+
+    <h3 class="sub-title">5.2 Technical Challenges</h3>
+    <ul>
+        <li><strong>Dual-Criteria Weight Management:</strong> Dijkstra natively operates on a single metric. Combining fare and time into a single sum causes unit conflicts (Taka vs. Minutes). We resolved this by dynamically choosing the edge weight based on user priority while independently summing the secondary metric along the reconstructed path.</li>
+        <li><strong>Path Backtracking:</strong> Reconstructing the full sequence of intermediate transit stops was achieved using a predecessor <code>parent[]</code> array.</li>
+    </ul>
+
+    <h3 class="sub-title">5.3 Project Limitations</h3>
+    <ul>
+        <li>Static weights represent average transit times and do not capture sudden peak-hour traffic jams.</li>
+        <li>Assumes public easybike boarding occurs at designated crossings.</li>
+    </ul>
+
+    <h2 class="sec-title">6. Team Management & Version Control</h2>
+    <h3 class="sub-title">6.1 Workload Distribution Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Team Member</th>
+                <th>Student ID</th>
+                <th>Assigned Tasks & Contributions</th>
+                <th>Workload %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>[Member 1 Name]</strong></td>
+                <td>221311117</td>
+                <td>Problem formulation, Rajshahi road network survey to VU, algorithm flowchart, core Dijkstra implementation.</td>
+                <td>35%</td>
+            </tr>
+            <tr>
+                <td><strong>[Member 2 Name]</strong></td>
+                <td>221311118</td>
+                <td>Graph data structures (adjacency list, priority queue), route data integration, and path reconstruction logic.</td>
+                <td>35%</td>
+            </tr>
+            <tr>
+                <td><strong>[Member 3 Name]</strong></td>
+                <td>221311119</td>
+                <td>Edge weight calibration via Google Maps, test cases execution, Git version control, and report compilation.</td>
+                <td>30%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sub-title">6.2 Git Commit History</h3>
+    <div class="ss-box">
+        <strong>[ PASTE SCREENSHOT 3 HERE: GITHUB COMMITS / GIT LOG ]</strong><br>
+        <span style="font-size: 10pt;">(Screenshot of your GitHub repository commit history or git log)</span>
+    </div>
+
+</body>
+</html>
